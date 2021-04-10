@@ -7,17 +7,21 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "paths": ["./"]
+        "paths": ["./src/"]
       },
-      "babel-module": {}
+      "babel-module": {},
+      "exclude": {
+        "paths": ["./src/stories"]
+      }
     }
   },
   "rules": {
-    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
-    "import/no-extraneous-dependencies": [
-      "error",
-      { "devDependencies": true }
-    ]
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx", ".tsx"] }],
+    "@typescript-eslint/explicit-module-boundary-types": "off"
   },
-  "extends": "airbnb"
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ]
 }
