@@ -1,5 +1,7 @@
 # Project Requirements
 
+* docker-compose exec web sh
+
 * Comunication with backend Ready
 
 * Websocket Channels Ready
