@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 
 export interface SimpleContainerProps {
@@ -10,8 +9,7 @@ export default function SimpleContainer(props: any) {
 
   return (
     <Fragment>
-      <CssBaseline />
-      <Container maxWidth="lg" style={{ backgroundColor: '#cfe8fc', marginTop: '15vh' }}>
+      <Container style={{ marginTop: '50vh', marginBottom: '50vh' }}>
         {children}
       </Container>
     </Fragment>

@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default function SimplePopover(props: any) {
-  const { children, ...defaultProps } = props;
+  const { ...defaultProps } = props;
 
   const classes = useStyles();
 
@@ -32,7 +32,7 @@ export default function SimplePopover(props: any) {
   };
 
   const accessor = (isOpen: boolean) => {
-    const icon = isOpen ? <BlurLinearIcon/> : <BlurCircularIcon/>;
+    const icon = isOpen ? <BlurLinearIcon /> : <BlurCircularIcon />;
     return <IconButton onClick={handleClick} className={classes.menuButton} color="inherit" aria-label="top-navbar-main-menu">{icon}</IconButton>;
   }
 

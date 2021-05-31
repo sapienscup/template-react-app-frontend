@@ -1,23 +1,29 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
+import SimpleRouteSwitcher from './components/containers/SimpleRouteSwitcher';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import './App.css';
 
-// import './App.css';
-// import logo from 'logo.svg';
+function App() {
+  const prefersLightMode = useMediaQuery('(prefers-color-scheme: light)');
 
-import Navbar from 'components/atoms/Navbar'
-import SimpleGrid from './components/atoms/SimpleGrid'
-import SimpleContainer from './components/atoms/SimpleContainer'
+  const theme = React.useMemo(
+    () =>
+      createMuiTheme({
+        palette: {
+          type: prefersLightMode ? 'light' : 'dark',
+        },
+      }),
+    [prefersLightMode],
+  );
 
-class App extends Component {
-  render() {
-    return (
-      <Fragment>
-        <Navbar />
-        <SimpleContainer>
-          <SimpleGrid />
-        </SimpleContainer>
-      </Fragment>
-    );
-  }
+  return (
+    <Fragment>
+      <ThemeProvider theme={theme}>
+        <SimpleRouteSwitcher />
+      </ThemeProvider>
+    </Fragment>
+  );
 }
 
 export default App;

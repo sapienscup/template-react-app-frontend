@@ -1,37 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button as MaterialButton } from '@material-ui/core';
-import { IconButton as MaterialIconButton } from '@material-ui/core';
+import { Button as MaterialButton, Icon } from '@material-ui/core';
 
-export const Button = ({ primary = false, size = 'medium', backgroundColor = 'coral', label = 'No label yet...', ...defaultProps }) => {
+export const Button = ({ label = 'No label yet...', icon = "help", ...defaultProps }) => {
 
-  const [buttonClickEventStateHolder, setbuttonClickEventStateHolder] = React.useState<HTMLButtonElement | null>(null);
+  // buttonClickEventStateHolder
+  const setbuttonClickEventStateHolder = React.useState<HTMLButtonElement | null>(null)[1];
 
   const clickEventHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     setbuttonClickEventStateHolder(event.currentTarget);
   };
 
-  if (defaultProps.variant === "fab") {
-    return <MaterialIconButton onClick={clickEventHandler} {...defaultProps}>{label}</MaterialIconButton>
-  }
-
-  return <MaterialButton onClick={clickEventHandler} {...defaultProps}>{label}</MaterialButton>;
+  return <MaterialButton onClick={clickEventHandler} {...defaultProps} endIcon={<Icon>{icon}</Icon>}>{label}</MaterialButton>;
 };
 
 Button.propTypes = {
-  primary: PropTypes.bool,
   backgroundColor: PropTypes.string,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   onClick: PropTypes.func,
   color: PropTypes.oneOf(['default', 'inherit', 'primary', 'secondary']),
+  icon: PropTypes.string,
   label: PropTypes.string,
 };
 
 Button.defaultProps = {
-  primary: false,
   backgroundColor: 'palelightblue',
   size: 'medium',
   onClick: () => null,
   color: 'default',
+  icon: "help",
   label: 'No label yet...'
 };

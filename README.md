@@ -34,3 +34,9 @@
 [x] jest + typescript + easy paths + storybook
 [] tsx storyboook
 [] react routes
+
+
+# Guides
+
+1. https://github.com/highcharts/highcharts-react/blob/master/README.md#highcharts-with-nextjs
+2. 

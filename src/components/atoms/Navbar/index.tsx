@@ -13,17 +13,17 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center"
   },
   navBarColor: {
-    backgroundColor: "#664290"
+    backgroundColor: "#221133"
   }
 }));
 
 export default function NavBar() {
   const classes = useStyles();
-  
+
   return (
-    <AppBar position="fixed">
+    <AppBar position="fixed" className={classes.navBarColor}>
       <Toolbar className={classes.toolbarAtCenter}>
-        <SimplePopover items={<FeaturesMenu/>}>
+        <SimplePopover items={<FeaturesMenu />}>
         </SimplePopover>
       </Toolbar>
     </AppBar>
